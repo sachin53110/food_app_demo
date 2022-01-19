@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:food_app_demo/pages/login_page.dart';
+import 'package:food_app_demo/route/routes.dart';
 
 import 'pages/home_page.dart';
 
@@ -12,11 +13,12 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
         themeMode: ThemeMode.system,
-        darkTheme: ThemeData(brightness: Brightness.dark),
+        darkTheme: ThemeData(
+            brightness: Brightness.dark, primaryColor: Colors.green[400]),
         routes: {
           "/": (context) => LoginPage(),
-          "/home": (context) => HomePage(),
-          "/login": (context) => LoginPage()
+          MyRoutes.HomeRout: (context) => HomePage(),
+          MyRoutes.LoginRout: (context) => LoginPage()
         });
   }
 }
