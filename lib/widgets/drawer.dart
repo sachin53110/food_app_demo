@@ -35,7 +35,7 @@ class MyDrawer extends StatelessWidget {
             ),
             ListTile(
               leading: Icon(
-                CupertinoIcons.home,
+                CupertinoIcons.profile_circled,
                 color: Colors.black,
               ),
               title: Text(
@@ -46,7 +46,7 @@ class MyDrawer extends StatelessWidget {
             ),
             ListTile(
               leading: Icon(
-                CupertinoIcons.home,
+                CupertinoIcons.command,
                 color: Colors.black,
               ),
               title: Text(
@@ -57,7 +57,7 @@ class MyDrawer extends StatelessWidget {
             ),
             ListTile(
               leading: Icon(
-                CupertinoIcons.home,
+                CupertinoIcons.gift,
                 color: Colors.black,
               ),
               title: Text(
@@ -68,7 +68,7 @@ class MyDrawer extends StatelessWidget {
             ),
             ListTile(
               leading: Icon(
-                CupertinoIcons.home,
+                CupertinoIcons.share,
                 color: Colors.black,
               ),
               title: Text(
@@ -79,7 +79,7 @@ class MyDrawer extends StatelessWidget {
             ),
             ListTile(
               leading: Icon(
-                CupertinoIcons.home,
+                CupertinoIcons.slider_horizontal_below_rectangle,
                 color: Colors.black,
               ),
               title: Text(
@@ -90,7 +90,7 @@ class MyDrawer extends StatelessWidget {
             ),
             ListTile(
               leading: Icon(
-                CupertinoIcons.home,
+                CupertinoIcons.info,
                 color: Colors.black,
               ),
               title: Text(
@@ -101,7 +101,7 @@ class MyDrawer extends StatelessWidget {
             ),
             ListTile(
               leading: Icon(
-                CupertinoIcons.home,
+                CupertinoIcons.back,
                 color: Colors.black,
               ),
               title: Text(
