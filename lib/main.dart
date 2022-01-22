@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:food_app_demo/pages/login_page.dart';
 import 'package:food_app_demo/route/routes.dart';
+import 'package:food_app_demo/widgets/themes.dart';
 
 import 'pages/home_page.dart';
 
@@ -13,8 +14,8 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
         themeMode: ThemeMode.system,
-        darkTheme: ThemeData(
-            brightness: Brightness.dark, primaryColor: Colors.green[400]),
+        theme: MyTheme.lightTheme(context),
+        darkTheme: MyTheme.darkTheme(context),
         routes: {
           "/": (context) => LoginPage(),
           MyRoutes.HomeRout: (context) => HomePage(),
