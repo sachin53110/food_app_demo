@@ -1,4 +1,9 @@
+import 'dart:convert';
+
 // ignore_for_file: file_names, non_constant_identifier_names
+class Skill {
+  static List<Item> items = [];
+}
 
 class Item {
   final int id;
@@ -16,17 +21,76 @@ class Item {
     required this.colors,
     required this.image,
   });
-}
 
-class Skill {
-  static final items = [
-    Item(
-        id: 1,
-        desc: "jsdf",
-        name: "Sachin",
-        price: 250,
-        colors: "#dfghfx",
-        image:
-            "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT5_f-3Npwnj40B6u8O8WmcX8swxRqUS8ncQg&usqp=CAU")
-  ];
+  Item copyWith({
+    int? id,
+    String? desc,
+    String? name,
+    num? price,
+    String? colors,
+    String? image,
+  }) {
+    return Item(
+      id: id ?? this.id,
+      desc: desc ?? this.desc,
+      name: name ?? this.name,
+      price: price ?? this.price,
+      colors: colors ?? this.colors,
+      image: image ?? this.image,
+    );
+  }
+
+  Map<String, dynamic> toMap() {
+    return {
+      'id': id,
+      'desc': desc,
+      'name': name,
+      'price': price,
+      'colors': colors,
+      'image': image,
+    };
+  }
+
+  factory Item.fromMap(Map<String, dynamic> map) {
+    return Item(
+      id: map['id']?.toInt() ?? 0,
+      desc: map['desc'] ?? '',
+      name: map['name'] ?? '',
+      price: map['price'] ?? 0,
+      colors: map['colors'] ?? '',
+      image: map['image'] ?? '',
+    );
+  }
+
+  String toJson() => json.encode(toMap());
+
+  factory Item.fromJson(String source) => Item.fromMap(json.decode(source));
+
+  @override
+  String toString() {
+    return 'Item(id: $id, desc: $desc, name: $name, price: $price, colors: $colors, image: $image)';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    if (identical(this, other)) return true;
+
+    return other is Item &&
+        other.id == id &&
+        other.desc == desc &&
+        other.name == name &&
+        other.price == price &&
+        other.colors == colors &&
+        other.image == image;
+  }
+
+  @override
+  int get hashCode {
+    return id.hashCode ^
+        desc.hashCode ^
+        name.hashCode ^
+        price.hashCode ^
+        colors.hashCode ^
+        image.hashCode;
+  }
 }
