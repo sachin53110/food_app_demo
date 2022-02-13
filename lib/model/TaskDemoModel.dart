@@ -2,7 +2,18 @@ import 'dart:convert';
 
 // ignore_for_file: file_names, non_constant_identifier_names
 class Skill {
+  static final catModel = Skill._internal();
+  Skill._internal();
+  factory Skill() => catModel;
+
   static List<Item> items = [];
+
+  // Get Item by ID
+  Item getById(int id) =>
+      items.firstWhere((element) => element.id == id, orElse: null);
+
+  // Get Item by position
+  Item getByPosition(int pos) => items[pos];
 }
 
 class Item {

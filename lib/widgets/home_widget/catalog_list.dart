@@ -1,9 +1,13 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:food_app_demo/model/TaskDemoModel.dart';
-import 'package:food_app_demo/pages/home_detail_page.dart';
-import 'package:food_app_demo/widgets/themes.dart';
+import 'package:food_app_demo/widgets/home_widget/add_to_cart.dart';
 import 'package:velocity_x/velocity_x.dart';
+
+import 'package:food_app_demo/model/TaskDemoModel.dart';
+import 'package:food_app_demo/model/cart.dart';
+import 'package:food_app_demo/pages/home_detail_page.dart';
+import 'package:food_app_demo/route/routes.dart';
+import 'package:food_app_demo/widgets/themes.dart';
 
 import 'catalog_image.dart';
 
@@ -41,15 +45,27 @@ class CatalogItem extends StatelessWidget {
     return VxBox(
         child: Row(
       children: [
+        // Column(
+        //   children: [
+        //     Container(
+        //       color: Colors.blue,
+        //       width: 60,
+        //       height: 40,
+        //       child: "1Points".text.white.center.make(),
+        //     ),
+        //     "Complete Task".text.lg.make()
+        //   ],
+        // )
         Hero(
             tag: Key(catalog.id.toString()),
             child: SkillImage(image: catalog.image)),
+
         Expanded(
             child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            catalog.name.text.lg.color(MyTheme.dartBlusihColor).bold.make(),
+            catalog.name.text.lg.color(MyTheme.creameColor).bold.make(),
             catalog.desc.text.caption(context).make(),
             10.heightBox,
             ButtonBar(
@@ -57,14 +73,7 @@ class CatalogItem extends StatelessWidget {
               buttonPadding: Vx.mOnly(right: 8),
               children: [
                 "\$${catalog.price}".text.bold.lg.make(),
-                ElevatedButton(
-                  onPressed: () {},
-                  style: ButtonStyle(
-                      backgroundColor:
-                          MaterialStateProperty.all(MyTheme.dartBlusihColor),
-                      shape: MaterialStateProperty.all(StadiumBorder())),
-                  child: "Buy".text.make(),
-                )
+                AddToCart(catalog: catalog)
               ],
             ).pOnly(right: 8.0)
           ],

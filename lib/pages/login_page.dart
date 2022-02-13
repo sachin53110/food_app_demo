@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:food_app_demo/route/routes.dart';
 
+import 'home_page.dart';
+
 class LoginPage extends StatefulWidget {
   @override
   State<LoginPage> createState() => _LoginPageState();
@@ -118,7 +120,11 @@ class _LoginPageState extends State<LoginPage> {
                       // ),
                       InkWell(
                         onTap: () {
-                          Navigator.pushNamed(context, MyRoutes.HomeRout);
+                          Navigator.pushAndRemoveUntil(
+                            context,
+                            MaterialPageRoute(builder: (context) => HomePage()),
+                            (Route<dynamic> route) => false,
+                          );
                         },
                         child: Container(
                           width: 150,

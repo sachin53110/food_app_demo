@@ -1,8 +1,11 @@
 // ignore_for_file: unnecessary_null_comparison
 
 import 'dart:convert';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:flutter/widgets.dart';
+import 'package:food_app_demo/route/routes.dart';
 import 'package:food_app_demo/widgets/home_widget/catalog_list.dart';
 import 'package:velocity_x/velocity_x.dart';
 import 'package:food_app_demo/model/TaskDemoModel.dart';
@@ -33,10 +36,16 @@ class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      floatingActionButton: FloatingActionButton(
+        onPressed: () => Navigator.pushNamed(context, MyRoutes.CartRout),
+        backgroundColor: Colors.green,
+        child: Icon(CupertinoIcons.cart),
+      ),
       appBar: AppBar(
         title: const Text("Skilled Tasker"),
         centerTitle: true,
         backgroundColor: Colors.green,
+        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(20)),
       ),
       body: SafeArea(
         child: Container(
